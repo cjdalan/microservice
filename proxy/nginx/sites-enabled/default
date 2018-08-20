@@ -1,0 +1,20 @@
+upstream users {
+    server 10.0.0.3;
+}
+
+upstream posts {
+    server 10.0.0.4;
+}
+
+server {
+    listen 80;
+    server_name 0.0.0.0;
+
+    location ~ /posts(.*) {
+        proxy_pass http://posts;
+    }
+
+    location ~ /users(.*) {
+        proxy_pass http://users;
+    }
+}
