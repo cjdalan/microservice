@@ -20,7 +20,7 @@ services:
   posts:
     build: ./services/posts
     volumes:
-      - ./services/users:/go/src/app
+      - ./services/posts:/go/src/app
     depends_on:
       - proxy
     networks:
